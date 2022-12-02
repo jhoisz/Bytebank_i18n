@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../components/container.dart';
+import '../components/localization/localization.dart';
 import '../models/name.dart';
 import 'contacts_list/contacts_list.dart';
 
@@ -27,6 +28,8 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var i18n = DashboardViewI18N(context);
+
     final name = context.watch<NameCubit>().state;
     return Scaffold(
       appBar: AppBar(
@@ -51,17 +54,17 @@ class DashboardView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 _FeatureItem(
-                  name: 'Transfer',
+                  name: i18n.transfer,
                   icon: Icons.monetization_on,
                   onClick: () => _showContactsList(context),
                 ),
                 _FeatureItem(
-                  name: 'Transaction Feed',
+                  name: i18n.transactionFeed,
                   icon: Icons.description,
                   onClick: () => _showTransactionsList(context),
                 ),
                 _FeatureItem(
-                  name: 'Change Name',
+                  name: i18n.changeName,
                   icon: Icons.person_outline,
                   onClick: () => _showChangeName(context),
                 ),
@@ -72,6 +75,31 @@ class DashboardView extends StatelessWidget {
       ),
     );
   }
+}
+
+class DashboardViewI18N extends ViewI18N {
+  DashboardViewI18N(BuildContext context) : super(context);
+
+  String get transfer =>
+      localize({
+        "pt-br": "Transferir",
+        "en": "Transfer",
+      }) ??
+      "Transfer";
+
+  String get transactionFeed =>
+      localize({
+        "pt-br": "Transações",
+        "en": "Transaction Feed",
+      }) ??
+      "Transaction Feed";
+
+  String get changeName =>
+      localize({
+        "pt-br": "Mudar nome",
+        "en": "Change name",
+      }) ??
+      "Change name";
 }
 
 class _FeatureItem extends StatelessWidget {
