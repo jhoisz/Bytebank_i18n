@@ -97,6 +97,10 @@ var i18n = DashboardViewI18N(context);
 
 ```
 
+### 🕵🏻‍♀️ _Eager_ e _Lazy_
+
+Existem dois tipos de dados: _eager_ (ansioso) e _lazy_ (preguiçoso). Onde _eager_ são os dados que estão todos disponíveis de uma só vez, enquanto o _lazy_ disponibiliza apenas os dados necessários a medida que são requeridos.
+
 ## :sparkles: Funcionalidades do projeto
 
 <!-- A aplicação possui as mesmas funcionalidades do projeto [Bytebank API](https://github.com/jhoisz/Bytebank-api), e como adição possui tratamento e demonstração dos diferentes tipos de erros que podem ocorrer.
