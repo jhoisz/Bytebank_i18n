@@ -1,3 +1,4 @@
+import 'package:bytebank2/components/I18NMessages/cubit/i18n_messages_cubit.dart';
 import 'package:bytebank2/screens/name.dart';
 import 'package:bytebank2/screens/transactions_list.dart';
 import 'package:flutter/material.dart';
@@ -14,22 +15,23 @@ class DashboardContainer extends BlocContainer {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => NameCubit("Jhois"),
-      child: const DashboardView(),
-      // child: BlocBuilder<NameCubit, String>(
-      //   builder: (context, state) => const DashboardView(),
-      // ),
-    );
+        create: (_) => NameCubit("Jhois"),
+        child: I18NLoadingContainer(
+            creator: (messages) =>
+                DashboardView(i18n: DashboardViewLazyI18N(messages)))
+        // child: BlocBuilder<NameCubit, String>(
+        //   builder: (context, state) => const DashboardView(),
+        // ),
+        );
   }
 }
 
 class DashboardView extends StatelessWidget {
-  const DashboardView({Key? key}) : super(key: key);
+  final DashboardViewLazyI18N i18n;
+  const DashboardView({Key? key, required this.i18n}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var i18n = DashboardViewI18N(context);
-
     final name = context.watch<NameCubit>().state;
     return Scaffold(
       appBar: AppBar(
@@ -54,17 +56,17 @@ class DashboardView extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 _FeatureItem(
-                  name: i18n.transfer,
+                  name: i18n.transfer ?? "",
                   icon: Icons.monetization_on,
                   onClick: () => _showContactsList(context),
                 ),
                 _FeatureItem(
-                  name: i18n.transactionFeed,
+                  name: i18n.transactionFeed ?? "",
                   icon: Icons.description,
                   onClick: () => _showTransactionsList(context),
                 ),
                 _FeatureItem(
-                  name: i18n.changeName,
+                  name: i18n.changeName ?? "",
                   icon: Icons.person_outline,
                   onClick: () => _showChangeName(context),
                 ),
@@ -100,6 +102,17 @@ class DashboardViewI18N extends ViewI18N {
         "en": "Change name",
       }) ??
       "Change name";
+}
+
+class DashboardViewLazyI18N {
+  final I18NMessages messages;
+  DashboardViewLazyI18N(this.messages);
+
+  String? get transfer => messages.get("transfer");
+
+  String? get transactionFeed => messages.get("transaction_feed");
+
+  String? get changeName => messages.get("change_name");
 }
 
 class _FeatureItem extends StatelessWidget {
