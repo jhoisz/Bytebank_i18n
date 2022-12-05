@@ -16,7 +16,7 @@ Utilizando o projeto [Bytebank com BLoC]() foram aplicadas algumas traduções `
 
 > Classe `CurrentLocaleCubit` responsável por prover o idioma do local.
 
-```
+```dart
 class CurrentLocaleCubit extends Cubit<String> {
   CurrentLocaleCubit() : super("pt-br");
 }
@@ -26,7 +26,7 @@ Também foram criadas as classes `LocalizationContainer` e `ViewI18N`:
 
 > Classe `LocalizationContainer`, que possui o _BLoC Provider_ e irá receber um _child_ (o _dashboard_ do app).
 
-```
+```dart
 class LocalizationContainer extends BlocContainer {
   final Widget child;
   const LocalizationContainer({required this.child, super.key});
@@ -43,7 +43,7 @@ class LocalizationContainer extends BlocContainer {
 
 > Classe `ViewI18N`, que recebe a localização de `CurrentLocaleCubit` e a retorna utilizando a função `localize`.
 
-```
+```dart
 class ViewI18N {
   String? language;
   ViewI18N(BuildContext context) {
@@ -61,7 +61,7 @@ Essa função `localize` é usada no nosso `DashboardView` (o qual estende de `V
 
 > Classe `DashboardViewI18N`.
 
-```
+```dart
 class DashboardViewI18N extends ViewI18N {
   DashboardViewI18N(BuildContext context) : super(context);
 
@@ -92,7 +92,7 @@ Assim, utilizando uma instância de `DashboardViewI18N` chamada `i18n`, traduzim
 
 > `i18n`, instância de `DashboardViewI18N`.
 
-```
+```dart
 var i18n = DashboardViewI18N(context);
 
 ```
