@@ -16,14 +16,17 @@ class LoadedI18nMessagesState extends I18nMessagesState {
 }
 
 class I18NMessages {
-  final Map<String, String> messages;
+  final Map<String, dynamic>? messages;
 
   I18NMessages(this.messages);
 
   String? get(String? key) {
     assert(key != null);
-    assert(messages.containsKey(key));
-    return messages[key];
+    if (messages != null) {
+      assert(messages!.containsKey(key));
+      return messages![key];
+    }
+    return null;
   }
 }
 
