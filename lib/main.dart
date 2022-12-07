@@ -1,8 +1,8 @@
-import 'package:bytebank2/screens/dashboard.dart';
+import 'package:bytebank2/screens/dashboard/dashboard_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'components/localization/localization.dart';
+import 'components/localization/locale.dart';
 import 'components/theme.dart';
 
 void main() {
