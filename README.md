@@ -12,7 +12,7 @@ A localização (l18n) é relacionada a formatações de moeadas, data, números
 
 ### 🪛 Exemplo de aplicação da i18n ao projeto
 
-Utilizando o projeto [Bytebank com BLoC]() foram aplicadas algumas traduções `pt-br (português brasileiro)` e `en` (inglês). Primeiro foi criado um Cubit de localização (_localization_):
+Utilizando o projeto [Bytebank com BLoC](https://github.com/jhoisz/Bytebank_BLoC) foram aplicadas algumas traduções `pt-br (português brasileiro)` e `en` (inglês). Primeiro foi criado um Cubit de localização (_localization_):
 
 > Classe `CurrentLocaleCubit` responsável por prover o idioma do local.
 
@@ -103,13 +103,11 @@ Existem dois tipos de dados: _eager_ (ansioso) e _lazy_ (preguiçoso). Onde _eag
 
 ## :sparkles: Funcionalidades do projeto
 
-<!-- A aplicação possui as mesmas funcionalidades do projeto [Bytebank API](https://github.com/jhoisz/Bytebank-api), e como adição possui tratamento e demonstração dos diferentes tipos de erros que podem ocorrer.
+A aplicação possui as mesmas funcionalidades do projeto [Bytebank com BLoC](https://github.com/jhoisz/Bytebank_BLoC), e como adição da internacionalização, ou seja, o projeto pode funcionar tanto em português quanto tem inglês.
 
 <p align="center">
-  <img src="https://github.com/jhoisz/Bytebank-api-v2/blob/main/bytebankv2apiv2.gif" alt= "Gif colorido da aplicação desenvolvida demonstrando os erros possiveis." />
-</p> -->
-
-> :construction: Projeto em construção :construction:
+  <img src="https://github.com/jhoisz/Bytebank_i18n/blob/main/i18n.gif" alt= "Gif colorido da aplicação desenvolvida." />
+</p>
 
 ## :hammer: Tecnologias usadas
 
